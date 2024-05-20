@@ -1633,6 +1633,25 @@ Nested `IF`s get hard to understand very quickly and require an exponential numb
 
 Decision trees can usually be taken apart by forming sub-methods and introducing boolean helper variables.
 
+Consider also using guard clauses instead of surrounding the main processing block in an `IF`.
+
+```ABAP
+IF <nothing_to_do>.
+  RETURN.
+ENDIF.
+
+" do all the things
+```
+
+instead of 
+
+```ABAP
+" anti-pattern
+IF <things_to_do>.
+" many lines of code with hanging IF
+ENDIF.
+```
+
 Other cases can be simplified by merging IFs, such as
 
 ```ABAP
